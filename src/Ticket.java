@@ -25,6 +25,18 @@ public class Ticket {
 
     public Ticket(int ID, String concertHall, int eventCode, long time,
                   boolean isPromo, String stadiumSector, double weight) {
+        if (ID > 9999 ) {
+            throw new IllegalArgumentException("The ID should be 4 digits max!");
+        }
+        if (concertHall.length() > 10) {
+            throw new IllegalArgumentException("The concert hall should be 10 symbols max!");
+        }
+        if (eventCode > 999 ) {
+            throw new IllegalArgumentException("The ID should be 3 digits max!");
+        }
+        if (!stadiumSector.contains("A") || !stadiumSector.contains("B") || !stadiumSector.contains("C")) {
+            throw new IllegalArgumentException("The available stadium sectors are only A, B and C!");
+        }
         this.ID = ID;
         this.concertHall = concertHall;
         this.eventCode = eventCode;
@@ -37,6 +49,12 @@ public class Ticket {
     }
 
     public Ticket(String concertHall, int eventCode, long time) {
+        if (concertHall.length() > 10) {
+            throw new IllegalArgumentException("The concert hall should be 10 symbols max!");
+        }
+        if (eventCode > 999 ) {
+            throw new IllegalArgumentException("The ID should be 3 digits max!");
+        }
         this.concertHall = concertHall;
         this.eventCode = eventCode;
         this.time = time;
