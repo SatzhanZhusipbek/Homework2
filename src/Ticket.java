@@ -34,7 +34,7 @@ public class Ticket {
         if (eventCode > 999 ) {
             throw new IllegalArgumentException("The ID should be 3 digits max!");
         }
-        if (!stadiumSector.contains("A") || !stadiumSector.contains("B") || !stadiumSector.contains("C")) {
+        if (!stadiumSector.contains("A") && !stadiumSector.contains("B") && !stadiumSector.contains("C")) {
             throw new IllegalArgumentException("The available stadium sectors are only A, B and C!");
         }
         this.ID = ID;
